@@ -66,7 +66,7 @@ function App() {
           onSetData={onDataRead}
           onSetEnableEdit={handleEdit}
         ></Header>
-        <Routes>
+        <Routes basename="/demo-app">
           <>{setRoute}</>
         </Routes>
       </div>

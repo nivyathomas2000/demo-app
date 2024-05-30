@@ -3,6 +3,7 @@ import emitter from './EventEmitter'; // Importing 'emitter' from 'eventEmitter.
 import { IoMdArrowDropdown, IoMdArrowDropup } from "react-icons/io";
 
 function InitialDataLoad({ onSetData }) {
+    const basePath ="/"
     const initialPath = "/demo-app/";
     const [message, setMessage] = useState(null);
     const [data, setData] = useState(null); // Changed setDataTemp to setData
