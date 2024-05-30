@@ -31,7 +31,7 @@ function InitialDataLoad({ onSetData }) {
             if (temp != null) {
                 temp.push({
                     menu: "Home",
-                    path: initialPath + "/demo-app/",
+                    path: initialPath + "demo-app/",
                     isSubMenuPresent: false,
                 });
                 temp.push({
