@@ -9,6 +9,7 @@ import { Tooltip } from "react-tooltip";
 
 function MainSideNav({ menuData, editEnabled }) {
   const location = useLocation();
+  
   const [isOpen, setIsOpen] = useState(false);
   const [isEdit, setIsEdit] = useState(false);
 

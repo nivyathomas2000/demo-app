@@ -4,9 +4,7 @@ import MainSideNav from "./components/MainSideNav";
 import Content from "./components/Content";
 import "bootstrap/dist/css/bootstrap.min.css";
 import {
-  BrowserRouter as Router,
   Route,
-  Switch,
   Routes,
 } from "react-router-dom";
 import InventoryExcelReader from "./components/InventoryExcelReader";
@@ -27,10 +25,6 @@ function App() {
     setData(dataRead);
   };
 
-  const setRouter = (index, x, routeElement) => {
-    return <Route key={index} path={x.path} element={routeElement} />;
-  };
-
   const setRoute = useMemo(() => {
     if (data != null) {
       return data.flatMap((item, index) => {
@@ -43,11 +37,7 @@ function App() {
               onSetData={onDataRead}
             />} />
           );
-        } else if (item.menu === "Inventory") {
-          return <Route key={index} path={item.path} element={
-            <InventoryExcelReader editEnabled={editEnabled} />
-          } />
-        } else {
+        }  else {
           return (<Route key={index} path={item.path} element={<Content
             data={data}
             item={item}
@@ -64,11 +54,7 @@ function App() {
   return (
     <div className="row">
       <InitialDataLoad onSetData={onDataRead} />
-      {/* <MenuExcelReader
-        key={"excelReader"}
-        onSetData={onDataRead}
-        file={process.env.PUBLIC_URL + "/Templates/pueree.xlsx"}
-      /> */}
+      
       <MainSideNav
         className="col-6 col-md-2 col-lg-10"
         menuData={data}
