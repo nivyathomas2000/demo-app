@@ -43,8 +43,8 @@ function InitialDataLoad({ onSetData }) {
             setData(temp); // Set data state here
             onSetData(temp);
         };
-        !fetchDataFromLS() && addCustomMenu();
-        // addCustomMenu();
+         !fetchDataFromLS() && addCustomMenu();
+         //addCustomMenu();
     }, []); // Ensure that this effect runs only once
 
     const updateData = (emitedData) => {
@@ -156,7 +156,7 @@ function InitialDataLoad({ onSetData }) {
     }
 
     const fetchDataFromLS = () => {
-        //localStorage.clear('appData')
+        // localStorage.clear('appData')
         const temp = localStorage.getItem('appData');
         if (temp) {
             const temp1 = JSON.parse(temp)
