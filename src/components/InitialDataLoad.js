@@ -3,7 +3,7 @@ import emitter from './EventEmitter'; // Importing 'emitter' from 'eventEmitter.
 import { IoMdArrowDropdown, IoMdArrowDropup } from "react-icons/io";
 
 function InitialDataLoad({ onSetData }) {
-    const initialPath = "/";
+    const initialPath = "/demo-app/";
     const [message, setMessage] = useState(null);
     const [data, setData] = useState(null); // Changed setDataTemp to setData
 
@@ -31,20 +31,20 @@ function InitialDataLoad({ onSetData }) {
             if (temp != null) {
                 temp.push({
                     menu: "Home",
-                    path: initialPath + "demo-app/",
+                    path: initialPath,
                     isSubMenuPresent: false,
                 });
                 temp.push({
                     menu: "Inventory",
-                    path: "/inventory",
+                    path: initialPath + "inventory",
                     isSubMenuPresent: false,
                 });
             }
             setData(temp); // Set data state here
             onSetData(temp);
         };
-
         !fetchDataFromLS() && addCustomMenu();
+        // addCustomMenu();
     }, []); // Ensure that this effect runs only once
 
     const updateData = (emitedData) => {
@@ -99,7 +99,7 @@ function InitialDataLoad({ onSetData }) {
                             if (y.menu === x.oldMenu) {
                                 y.menu = x.menu
                                 y.path = initialPath + item.menu?.replace(" ", "").toLowerCase()
-                                    + initialPath + x.menu?.replace(" ", "").toLowerCase()
+                                    + "/" + x.menu?.replace(" ", "").toLowerCase()
                             }
                         })
                     }
@@ -149,7 +149,7 @@ function InitialDataLoad({ onSetData }) {
         return {
             menu: item.menu,
             path: initialPath + messageData.menu?.replace(" ", "").toLowerCase()
-                + initialPath + item.menu?.replace(" ", "").toLowerCase(),
+                + "/" + item.menu?.replace(" ", "").toLowerCase(),
             content: item.content ? item.content : '',
             html: item.html ? item.html : ''
         };
