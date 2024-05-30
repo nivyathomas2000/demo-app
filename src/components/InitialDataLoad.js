@@ -156,7 +156,7 @@ function InitialDataLoad({ onSetData }) {
     }
 
     const fetchDataFromLS = () => {
-        // localStorage.clear('appData')
+         localStorage.clear('appData')
         const temp = localStorage.getItem('appData');
         if (temp) {
             const temp1 = JSON.parse(temp)
